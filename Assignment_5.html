@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <h1>Masai School Application</h1>
+  <p>Enter Your name and gender to apply for masai school</p>
+  <h2 id="display">Display entered name and gender here</h2>
+  <hr>
+  <input type="text" id="name" placeholder="Enter your name">
+  <select id="gender">
+    <option value="Male">Male</option>
+    <option value="Female">Female</option> <!-- Corrected the Female option value -->
+  </select>
+  <button id="applyButton">Apply</button>
+</body>
+</html>
+<script>
+  const applyButton = document.getElementById("applyButton");
+  const Input = document.getElementById("name");
+  const gender = document.getElementById("gender");
+  const headTag = document.getElementById("display");
+
+  applyButton.addEventListener("click", abc => {
+    const enteredName = Input.value;
+    const selectedGender = gender.value;
+
+    if (enteredName && selectedGender) {
+      headTag.textContent = `Name: ${enteredName}, Gender: ${selectedGender}`;
+    } else {
+      haedTag.textContent = "Display entered name and gender here ";
+    }
+  });
+</script>

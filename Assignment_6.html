@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Calculator</title>
+</head>
+<body>
+    <input  type = "text" id = "num1" placeholder="enter 1st number">
+    <input type = "text"  id = "num2" placeholder="enter 2nd number">
+    <hr>
+    <button >Add</button>
+    <button>Subtract</button>
+    <button onclick="show()">Multiply</button>
+    <button onclick="show1()">Divide</button>
+</body>
+</html>
+<script>
+    let Input = document.getElementById("num1");
+    let input = document.getElementById("num2");
+    
+   function show()
+          {
+  alert(Input.value * input.value)          
+          }
+  function show1()
+         {
+ alert(Input.value / input.value)
+         }
+</script>

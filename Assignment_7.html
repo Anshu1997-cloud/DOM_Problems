@@ -26,27 +26,41 @@
 	<button onclick="resetDisplay()">RESET DISPLAY</button>
 	<script type="text/javascript">
 		function showName() {
-			// Show filled name inside h1
+			let H1 = document.getElementById("dName");
+            let name = document.getElementById("name").value;
+			H1.innerText = name;
 		}
 
 		function showGender() {
-			// Show the selected gender inside h2
+			let G = document.getElementById("dGender");
+			let gender = document.getElementById("gender").value;
+			G.innerText = gender;
 		}
 
 		function showEmail() {
-			// Show the filled email inside h3
+			let E = document.getElementById("dEmail");
+			let email = document.getElementById("email").value;
+			E.innerText = email;
 		}
 
 		function showMobile() {
-			// Show the filled mobile inside h4
+			let H4 = document.getElementById("dMobile");
+			let M = document.getElementById("mobile").value;
+			H4.innerText = M;
 		}
-
 		function resetForm() {
-			// Reset all the form elements to default values (blank "")
+			 document.getElementById("name").value ="";
+			document.getElementById("gender").value = "";
+			 document.getElementById("email").value = "";
+		 document.getElementById("mobile").value = "";
 		}
 
 		function resetDisplay() {
 			// Reset all the headings (h1, h2, h3, h4) to blank values
+			document.getElementById("dName").innerText= "";
+			document.getElementById("dGender").innerText = "";
+			document.getElementById("dEmail").innerText = "";
+			document.getElementById("dMobile").innerText = "";
 		}
 	</script>
 </body>

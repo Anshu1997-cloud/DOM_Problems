@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeaderBoard.Html</title>
+    <style>
+          .Box{
+            background-color: crimson;
+            width : 30px;
+            border : 1px;
+            border-color: darkred;
+          }
+
+    </style>
+</head>
+<body>
+    <div class = "Box"></div>
+    <p>43</p>;
+    <p>2019</p>
+    <h1 class = "score-box" id = "scoreBox"></h1>
+      <div class = "number">
+        <button >1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>0</button>
+        </div>
+    <button id = "But">Enter</button>
+</body>
+<script>
+ let Box1 = document.querySelectorAll(".Box > p");
+ let Headtag = document.getElementById("scoreBox");
+ let keypad = document.querySelectorAll(".number > button ");
+ let EnterKey = document.querySelector("#But");
+ 
+ let firstNumber = "";
+
+for(let i = 0; i<keypad.length;i++)
+{
+  keypad[i].addEventListener("click",function()
+    {
+      Headtag.style.backgroundColor = "grey";
+      Headtag.style.width = "190px";
+     firstNumber += keypad[i].innerText;
+     Headtag.innerText = firstNumber;
+    })
+}
+for(let i =0; i<Box1.length;i++)
+{
+  Box1.style.backgroundColor = "red";
+}
+
+for(let i = 0; i<EnterKey.length;i++)
+{
+  Enterkey[i].addEventListener("click",function()
+  {
+
+  })
+}
+</script>
+</html>

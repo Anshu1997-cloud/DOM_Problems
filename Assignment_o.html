@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .calculator {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .button {
+    font-size: 20px;
+    padding: 10px;
+    text-align: center;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .button.operator {
+    background-color: #f0f0f0;
+  }
+  .button.result {
+    background-color: #78c75d;
+    color: #ffffff;
+  }
+</style>
+</head>
+<body>
+<div class="calculator">
+  <button class="button" onclick="appendValue('7')">7</button>
+  <button class="button" onclick="appendValue('8')">8</button>
+  <button class="button" onclick="appendValue('9')">9</button>
+  <button class="button operator" onclick="appendValue('+')">+</button>
+  <button class="button" onclick="appendValue('4')">4</button>
+  <button class="button" onclick="appendValue('5')">5</button>
+  <button class="button" onclick="appendValue('6')">6</button>
+  <button class="button operator" onclick="appendValue('-')">-</button>
+  <button class="button" onclick="appendValue('1')">1</button>
+  <button class="button" onclick="appendValue('2')">2</button>
+  <button class="button" onclick="appendValue('3')">3</button>
+  <button class="button operator" onclick="appendValue('*')">*</button>
+  <button class="button" onclick="appendValue('0')">0</button>
+  <button class="button operator" onclick="clearInput()">C</button>
+  <button class="button result" onclick="calculate()">=</button>
+  <button class="button operator" onclick="appendValue('/')">/</button>
+</div>
+<script>
+  let input = '';
+
+  function appendValue(value) {
+    input += value;
+    updateDisplay();
+  }
+
+  function updateDisplay() {
+    document.querySelector('.calculator-display').textContent = input;
+  }
+
+  function clearInput() {
+    input = '';
+    updateDisplay();
+  }
+
+  function calculate() {
+    try {
+      input = eval(input).toString();
+      updateDisplay();
+    } catch (error) {
+      input = 'Error';
+      updateDisplay();
+    }
+  }
+</script>
+</body>
+</html>

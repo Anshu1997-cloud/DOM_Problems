@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+   <input type ="text" name = "myInput"  id = "myInput">
+   <button onclick = "myButton()">Submit</button>
+   <h1 id = "dname">Entered Value : </h1>
+   <script type = "text/javascript">
+      let Input1 = document.getElementById("myInput"); 
+    function myButton(){
+         alert(Input1.value);
+    let HeadTag = document.getElementById("dname");
+    let Name = document.getElementById("myInput").value;
+    HeadTag.innerText = Name;
+        }
+</script>
+</body>
+</html>

@@ -9,37 +9,40 @@
     <h1>Check Your BMI</h1>
     <p>Enter your weigth and heigth below to check your BMI results</p>
     <h2>Put your weigth in here (KG)</h2>
-    <input type = "weight"  id ="name" >
+    <input type = "number"  id ="weight" >
     <h3>And your height in Here(CM)</h3>
-    <input type=" height"  id ="name1">
-    <button id ="press">Calculate BMI</button>
+    <input type="number"  id ="height">
+    <button id ="press" onClick = "BMI()">Calculate BMI</button>
     <h2 id = "display">Show your Status</h2>
 </body>
 </html>
 <script>
-    let Name = document.getElementById("name");
-    let Name1 = document.getElementById("name1");
-    let Button = document.getElementById("press");
-    let headTag = document.getElementById("display")
+    function BMI(){
+    let weight = document.querySelector("#weight").value;
+    let height = document.querySelector("#height").value;
+    let headTag = document.querySelector('#display');
+    
+   if(!height || isNaN(height) || height < 0){
+    headTag.innerText = "Please provide a valid height";
+    return;
+   }
+   else if(!weight || isNaN(weight) || weight < 0){
+    headTag.innerText = "Please provide a valid weight";
+    return;
+   }
+   let bmi =( weight / ((height*height) / 10000 )).toFixed(2);
 
-
-        Button.addEventListener("click",function(){
-            // let enteredweight = Name.value;
-            // let enteredheight = Name1.value;
-
-              Number(BMI) = Number(Name.innerText)/(Number(Name1.innerText)*Number(Name1.innerText))
-
-            if(Number(BMI.innerText) <= 18.4){
-               headTag.textContent = `Your BMI is ${Number(BMI.innerText)} which means You are UnderWeight`;
-            }
-            else if(Number(BMI.innerText) >= 18.5 &&Number(BMI.innerText) <=24.9){
-                headTag.textContent = `Your BMI is ${Number(BMI.innerText)} which means You are NormalWeight`;
-            }
-            else if(Number(BMI.innerText) >= 25 && Number(BMI.innerText) <= 29.9){
-                headTag.textContent = `Your BMI is ${Number(BMI.innerText)} which means You are OverWeight`;
-            }
-            else if(Number(BMI.innerText )>= 30){
-                headTag.textContent = `Your BMI is ${Number(BMI.innerText)} which means You are Obese`;
-            }
-        })
+   if(bmi < 18.4){
+     headTag.innerText = `Your BMI is ${bmi} and you are UnderWeight`
+   }
+   else if (bmi >= 18.5 && bmi <= 24.9){
+    headTag.innerText = `Your BMI is ${bmi} and you are NormalWeight`
+   }
+   else if (bmi >= 25 && bmi <= 29.9){
+    headTag.innerText = `Your BMI is ${bmi} and you are OverWeight`
+   }
+   else if(bmi >= 30){
+    headTag.innerText = `Your BMI is ${bmi} and you are Obese`
+   }
+    }  
 </script>

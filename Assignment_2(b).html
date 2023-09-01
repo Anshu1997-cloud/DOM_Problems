@@ -5,22 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LeaderBoard.Html</title>
     <style>
-          .Box{
-            background-color: crimson;
-            width : 30px;
-            border : 1px;
-            border-color: darkred;
+          .data{
+               display: flex;
+               margin: auto;
+               width: 50%;
+               justify-content: space-between;
           }
-
+          .data>div{
+            border: 1px solid green;
+            padding: 30px;
+          }
+          .cont{
+            margin: auto;
+            width: 70%;
+            margin-top: 40px;;
+          }
+          #score{
+            color:blue;
+            font-size: 20px;;
+          }
+          .keys{
+            display: grid;
+            grid-template-columns: repeat(3,40px);
+            gap: 10px;
+            justify-content: center;
+          }
+          #enter{
+            margin-top: 2%;
+            margin-left: 48%;
+          }
     </style>
 </head>
 <body>
-    <div class = "Box"></div>
-    <p>43</p>;
-    <p>2019</p>
-    <h1 class = "score-box" id = "scoreBox"></h1>
-      <div class = "number">
-        <button >1</button>
+    <div class = "data">
+      <div id = "min" style = "background-color: red; font-weight: 100px;">100</div>
+      <div id = "max" style = "background-color: green;font-weight: 100px;">120</div>
+    </div>
+
+    <div class = "cont">
+      <div id ="score"></div>
+      <div class = "keys">
+        <button >0</button>
+        <button>1</button>
         <button>2</button>
         <button>3</button>
         <button>4</button>
@@ -29,39 +55,37 @@
         <button>7</button>
         <button>8</button>
         <button>9</button>
-        <button>0</button>
         </div>
-    <button id = "But">Enter</button>
+    </div>
+    <button id = "enter">Enter</button>
 </body>
-<script>
- let Box1 = document.querySelectorAll(".Box > p");
- let Headtag = document.getElementById("scoreBox");
- let keypad = document.querySelectorAll(".number > button ");
- let EnterKey = document.querySelector("#But");
- 
- let firstNumber = "";
-
-for(let i = 0; i<keypad.length;i++)
-{
-  keypad[i].addEventListener("click",function()
-    {
-      Headtag.style.backgroundColor = "grey";
-      Headtag.style.width = "190px";
-     firstNumber += keypad[i].innerText;
-     Headtag.innerText = firstNumber;
-    })
-}
-for(let i =0; i<Box1.length;i++)
-{
-  Box1.style.backgroundColor = "red";
-}
-
-for(let i = 0; i<EnterKey.length;i++)
-{
-  Enterkey[i].addEventListener("click",function()
-  {
-
-  })
-}
-</script>
 </html>
+<script>
+  let min = document.getElementById("min");
+  let max = document.getElementById("max");
+  let score = document.getElementById("score");
+  let keys = document.querySelectorAll(".keys > button");
+  let enter = document.getElementById("enter");
+ 
+  
+ for(let i = 0; i<keys.length;i++)
+ {
+   keys[i].addEventListener("click",function(){
+       score.innerText += keys[i].innerText
+     })
+ }
+ 
+ enter.addEventListener("click",function(){
+ if(Number(score.innerText) < Number(min.innerText)){
+    min.innerText = score.innerText;
+ 
+ }
+ 
+ if(Number(score.innerText) > Number(max.innerText)){
+   max.innerText = score.innerText;
+ }
+ 
+ score.innerText = "";
+ 
+ })
+ </script>

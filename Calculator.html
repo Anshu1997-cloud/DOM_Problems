@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculato5</title>
+    <style>
+        #display{
+            margin-left: 44%;
+            margin-top: 15%;
+            color: blue;
+        }
+        #keypad{
+            display: grid;
+            grid-template-columns: repeat(3,40px);
+            gap: 10px;
+            justify-content: center;
+            margin-top: 5%;
+            
+        }
+        .operator{
+            margin-left: 46% ;
+            gap : 5%;
+            margin-top: 2%;
+        }
+        #equal{
+            margin-left: 46%;
+            margin-top: 3%;
+        }
+    </style>
+</head>
+<body>
+    <h1 type = "number" id = "display"></h1>
+    <div id = "keypad">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>0</button>
+    </div>
+    <div class = "operator">
+        <button>+</button>
+        <button>-</button>
+        <button>*</button>
+        <button>/</button>
+    </div>
+    <button id ="equal">Enter</button>
+</body>
+</html>
+<script>
+    let headTag = document.getElementById("display");
+    let Keypad = document.querySelectorAll("#keypad > button");
+    let Enter = document.getElementById("equal");
+    let operators = document.querySelectorAll(".operator > button");
+     
+     let FirstNumber = "";
+     let SecondNumber = "";
+     IsFirstNumber = true;
+     let Operator = "";
+
+     equal.addEventListener("click",function(){
+        headTag.innerText = calculate(FirstNumber,SecondNumber,Operator)
+     })
+
+for(let i = 0; i<Keypad.length; i++){
+    Keypad[i].addEventListener("click" , function(){
+     
+      if(IsFirstNumber == true){
+        FirstNumber += Keypad[i].innerText;
+        headTag.innerText = FirstNumber;
+      }
+      else{
+           SecondNumber += Keypad[i].innerText;
+           headTag.innerText = SecondNumber;
+      }
+    })
+}
+
+for(let i = 0; i< operators.length; i++){
+
+    operators[i].addEventListener("click",function(){
+       IsFirstNumber = false;
+       Operator  += operators[i].innerText
+    })
+}
+
+function calculate(FirstNumber,SecondNumber,Operator){
+    
+    switch(Operator)
+    {
+          case "+" :
+          return Number(FirstNumber) + Number(SecondNumber);
+          case "-"  :
+          return Number(FirstNumber)  - Number(SecondNumber);
+          case "*"  :
+          return Number(FirstNumber)  * Number(SecondNumber);
+          case "/"   :
+          return Number(FirstNumber)  / Number(SecondNumber);
+}
+}
+</script>
